@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdmController;
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\SadController;
 use App\Http\Controllers\UsrController;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [GuestController::class,'index']);
 
 //USR - Utilizador
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
