@@ -2,7 +2,14 @@
 <header id="header">
     <div class="container d-flex">
         <div class="logo mr-auto">
-            <h1 class="text-light"><a href="index.html">Flattern</a></h1>
+            <h1 class="text-light"><a href="/">
+                @if (!(__('appconfig.shortname') == ""))
+                    {{ __('appconfig.shortname') }}
+                @else
+                    {{ config('app.name', 'Laravel') }}
+                @endif
+
+            </a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
