@@ -35,17 +35,14 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  @yield('head')
 </head>
 
 <body>
     @include('flatternparts.topbar')
     @include('flatternparts.topnav')
-    @include('flatternparts.hero')
     <main id="main">
-        @include('flatternparts.chamadah')
-        @include('flatternparts.servicos')
-        @include('flatternparts.portfolio')
-        @include('flatternparts.clientes')
+
         @yield('content')
     </main><!-- End #main -->
     <footer id="footer">

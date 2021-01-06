@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [GuestController::class,'index']);
+Route::get('/', [GuestController::class,'index'])->name('inicio');
+Route::get('/about', [GuestController::class,'about'])->name('about');
 
 //USR - Utilizador
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {

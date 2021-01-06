@@ -16,8 +16,8 @@
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li @if ($page == "home") class="active" @endif><a href="{{route('inicio')}}">Início</a></li>
+                <li @if ($page == "about") class="active" @endif><a href="{{route('about')}}">Sobre Nós</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="testimonials.html">Testimonials</a></li>
