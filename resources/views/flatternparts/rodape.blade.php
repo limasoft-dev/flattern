@@ -1,7 +1,8 @@
 @php
-    $caminho = __('appconfig.mypath').'api/getservicos';
+    $config = Http::get(config('app.api').'/api/getconfigs')->json();
+    $caminho = $config['mypath'].'api/getservicos';
     $servicos = Http::get($caminho)->json();
-    $caminho = __('appconfig.mypath').'api/getlinks';
+    $config = Http::get('http://127.0.0.1:8000/api/getconfigs')->json();
     $links = Http::get($caminho)->json();
 @endphp
 <!-- ======= Footer ======= -->
@@ -13,18 +14,18 @@
 
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>
-                @if (!(__('appconfig.shortname') == ""))
-                    {{ __('appconfig.shortname') }}
+                @if (!($config['shortname'] == ""))
+                    {{ $config['shortname'] }}
                 @else
                     {{ config('app.name', 'Laravel') }}
                 @endif
             </h3>
             <p>
-                {{ __('appconfig.morada') }} <br>
-                {{ __('appconfig.cpostal') }} {{ __('appconfig.localidade') }}<br>
+                {{ $config['morada'] }} <br>
+                {{ $config['cpostal'] }} {{ $config['localidade'] }}<br>
               <br>
-              <strong>Telefone:</strong> {{ __('appconfig.telefone') }}<br>
-              <strong>Email:</strong> {{ __('appconfig.email') }}<br>
+              <strong>Telefone:</strong> {{ $config['telefone'] }}<br>
+              <strong>Email:</strong> {{ $config['email'] }}<br>
             </p>
           </div>
 
@@ -47,8 +48,8 @@
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>{{ __('appconfig.newslttit') }}</h4>
-            <p>{{ __('appconfig.newslttexto') }}</p>
+            <h4>{{ $config['newslttit'] }}</h4>
+            <p>{{ $config['newslttexto'] }}</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscrever">
             </form>

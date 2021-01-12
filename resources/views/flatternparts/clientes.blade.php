@@ -1,5 +1,6 @@
 @php
-    $caminho = __('appconfig.mypath').'api/getclientes';
+    $config = Http::get(config('app.api').'/api/getconfigs')->json();
+    $caminho = $config['mypath'].'api/getclientes';
     $clientes = Http::get($caminho)->json();
 @endphp
 
@@ -9,8 +10,8 @@
         <div class="container">
 
         <div class="section-title" data-aos="fade-up">
-            <h2>{{__('appconfig.cltitp1')}} <strong>{{__('appconfig.cltitp2')}} </strong></h2>
-            <p>{{__('appconfig.cltexto')}}.</p>
+            <h2>{{$config['cltitp1']}} <strong>{{$config['cltitp2']}} </strong></h2>
+            <p>{{$config['cltexto']}}.</p>
         </div>
 
         <div class="row no-gutters clients-wrap clearfix" data-aos="fade-up">

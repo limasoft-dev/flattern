@@ -38,7 +38,7 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Personalizar:</h6>
-                <a class="collapse-item" href="#">Contactos</a>
+                <a class="collapse-item" href="{{route('sad.firma.contactos')}}">Contactos</a>
                 <a class="collapse-item" href="#">RedesSociais</a>
             </div>
         </div>
@@ -120,9 +120,9 @@
 
     <!-- Sidebar Message -->
     <div class="sidebar-card">
-        <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
-        <p class="text-center mb-2"><strong>LimaSoft</strong><br>Use prioritariamente a nossa plataforma de apoio ao cliente para colocar as suas dúvidas!</p>
-        <a class="btn btn-success btn-sm" href="#">Suporte!</a>
+        <img class="sidebar-card-illustration mb-2" src="{{asset('sbadmin2/img/logo.png')}}" alt="">
+        <p class="text-center mb-2">Use prioritariamente a nossa plataforma de apoio ao cliente para suporte!</p>
+        <a class="btn btn-success btn-sm" href="#">ApoioCliente</a>
     </div>
 
 </ul>

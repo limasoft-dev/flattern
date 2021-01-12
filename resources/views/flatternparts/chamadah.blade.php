@@ -1,17 +1,21 @@
+@php
+    $config = Http::get(config('app.api').'/api/getconfigs')->json();
+    $caminho = $config['mypath'].'api/getclientes';
+    $clientes = Http::get($caminho)->json();
+@endphp
+
 <!-- ======= Cta Section ======= -->
-@if ((__('appconfig.chtitp1')<>"") or (__('appconfig.chtitp2')<>"") or (__('appconfig.chtitp3')<>""))
-
-
+@if (($config['chtitp1']<>"") or ($config['chtitp2']<>"") or ($config['chtitp3']<>""))
 <section id="cta" class="cta">
     <div class="container">
 
       <div class="row">
         <div class="col-lg-9 text-center text-lg-left">
-          <h3>{{ __('appconfig.chtitp1')}} <span>{{ __('appconfig.chtitp2')}}</span> {{ __('appconfig.chtitp3')}}</h3>
-          <p> {{ __('appconfig.chtexto')}}.</p>
+          <h3>{{$config['chtitp1']}} <span>{{$config['chtitp2']}}</span> {{$config['chtitp3']}}</h3>
+          <p> {{$config['chtexto']}}.</p>
         </div>
         <div class="col-lg-3 cta-btn-container text-center">
-          <a class="cta-btn align-middle" href="{{ __('appconfig.chlink')}}">{{ __('appconfig.chtxtlink')}}</a>
+          <a class="cta-btn align-middle" href="{{$config['chlink']}}">{{$config['chtxtlink']}}</a>
         </div>
       </div>
 

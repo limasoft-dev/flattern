@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\ConfigsController;
 use App\Http\Controllers\HerosCotroller;
 use App\Http\Controllers\LinksController;
 use App\Http\Controllers\PortefoliosController;
@@ -30,3 +31,4 @@ Route::get('/getcategorias',[CategoriasController::class,'getcategorias']);
 Route::get('/getportefolios',[PortefoliosController::class,'getportefolios']);
 Route::get('/getclientes',[ClientesController::class,'getclientes']);
 Route::get('/getlinks',[LinksController::class,'getlinks']);
+Route::get('/getconfigs',[ConfigsController::class,'getconfigs']);

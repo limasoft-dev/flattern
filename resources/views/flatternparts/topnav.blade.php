@@ -1,10 +1,14 @@
+@php
+    $config = Http::get(config('app.api').'/api/getconfigs')->json();
+@endphp
+
 <!-- ======= Header ======= -->
 <header id="header">
     <div class="container d-flex">
         <div class="logo mr-auto">
             <h1 class="text-light"><a href="/">
-                @if (!(__('appconfig.shortname') == ""))
-                    {{ __('appconfig.shortname') }}
+                @if (!($config['shortname'] == ""))
+                    {{ $config['shortname'] }}
                 @else
                     {{ config('app.name', 'Laravel') }}
                 @endif

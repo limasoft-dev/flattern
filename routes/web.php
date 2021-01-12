@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdmController;
+use App\Http\Controllers\FirmaController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\SadController;
 use App\Http\Controllers\UsrController;
@@ -33,4 +34,8 @@ Route::middleware(['auth:sanctum', 'verified', 'authadm'])->group(function () {
 //SAD - Super Admin LimaSoft
 Route::middleware(['auth:sanctum', 'verified', 'authsad'])->group(function () {
     Route::get('sad/dashboard',[SadController::class,'index'])->name('sad.dashboard');
+
+    Route::get('sad/firma/contactos',[FirmaController::class,'contactos'])->name('sad.firma.contactos');
+    Route::put('entidade/{id}',[FirmaController::class,'entidadeupdate'])->name('entidade.update');
+
 });

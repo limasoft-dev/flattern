@@ -1,5 +1,6 @@
 @php
-    $caminho = __('appconfig.mypath').'api/getservicos';
+    $config = Http::get(config('app.api').'/api/getconfigs')->json();
+    $caminho = $config['mypath'].'api/getservicos';
     $servicos = Http::get($caminho)->json();
     $delay = 0;
 @endphp
@@ -8,7 +9,7 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <h2>{{ __('appconfig.servtitp1')}} <strong>{{ __('appconfig.servtitp2')}}</strong></h2>
+                <h2>{{ $config['servtitp1']}} <strong>{{ $config['servtitp2']}}</strong></h2>
             </div>
             <div class="row">
                 @foreach ($servicos as $servico)

@@ -1,31 +1,35 @@
+@php
+    $config = Http::get(config('app.api').'/api/getconfigs')->json();
+@endphp
+
 <!-- ======= Top Bar ======= -->
 <section id="topbar" class="d-none d-lg-block">
     <div class="container d-flex">
         <div class="contact-info mr-auto">
-            @if (!(__('appconfig.email') == ""))
-                <i class="icofont-envelope"></i><a href="mailto:contact@example.com">{{ __('appconfig.email') }}</a>
+            @if (!($config['email'] == ""))
+                <i class="icofont-envelope"></i><a href="mailto:contact@example.com">{{ $config['email'] }}</a>
             @endif
-            @if (!(__('appconfig.telefone') == ""))
-            <i class="icofont-phone"></i> {{ __('appconfig.telefone') }}
+            @if (!($config['telefone'] == ""))
+            <i class="icofont-phone"></i> {{ $config['telefone'] }}
             @endif
 
 
         </div>
         <div class="social-links">
-            @if (!(__('appconfig.twitter') == ""))
-                <a href="{{__('appconfig.twitter')}}" class="twitter"><i class="icofont-twitter"></i></a>
+            @if (!($config['twitter'] == ""))
+                <a href="{{$config['twitter']}}" class="twitter"><i class="icofont-twitter"></i></a>
             @endif
-            @if (!(__('appconfig.facebook') == ""))
-                <a href="{{__('appconfig.facebook')}}" class="facebook"><i class="icofont-facebook"></i></a>
+            @if (!($config['facebook'] == ""))
+                <a href="{{$config['facebook']}}" class="facebook"><i class="icofont-facebook"></i></a>
             @endif
-            @if (!(__('appconfig.instagran') == ""))
-                <a href="{{__('appconfig.instagran')}}" class="instagram"><i class="icofont-instagram"></i></a>
+            @if (!($config['instagran'] == ""))
+                <a href="{{$config['instagran']}}" class="instagram"><i class="icofont-instagram"></i></a>
             @endif
-            @if (!(__('appconfig.skype') == ""))
-                <a href="{{__('appconfig.skype')}}" class="skype"><i class="icofont-skype"></i></a>
+            @if (!($config['skype'] == ""))
+                <a href="{{$config['skype']}}" class="skype"><i class="icofont-skype"></i></a>
             @endif
-            @if (!(__('appconfig.linkedin') == ""))
-                <a href="{{__('appconfig.linkedin')}}" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+            @if (!($config['linkedin'] == ""))
+                <a href="{{$config['linkedin']}}" class="linkedin"><i class="icofont-linkedin"></i></i></a>
             @endif
 
 

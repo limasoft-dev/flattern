@@ -1,5 +1,6 @@
 @php
-    $caminho = __('appconfig.mypath').'api/getheros';
+    $config = Http::get(config('app.api').'/api/getconfigs')->json();
+    $caminho = $config['mypath'].'api/getheros';
     $heros = Http::get($caminho)->json();
     $primeiro = 0;
 @endphp

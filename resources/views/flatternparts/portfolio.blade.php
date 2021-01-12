@@ -1,7 +1,8 @@
 @php
-    $caminho = __('appconfig.mypath').'api/getcategorias';
+    $config = Http::get(config('app.api').'/api/getconfigs')->json();
+    $caminho = $config['mypath'].'api/getcategorias';
     $categorias = Http::get($caminho)->json();
-    $caminho = __('appconfig.mypath').'api/getportefolios';
+    $caminho = $config['mypath'].'api/getportefolios';
     $portefolios = Http::get($caminho)->json();
 @endphp
 <!-- ======= Portfolio Section ======= -->
@@ -10,7 +11,7 @@
         <div class="container">
 
             <div class="section-title" data-aos="fade-up">
-                <h2>{{__('appconfig.pttitp1')}} <strong>{{__('appconfig.pttitp2')}}</strong></h2>
+                <h2>{{$config['pttitp1']}} <strong>{{$config['pttitp2']}}</strong></h2>
             </div>
 
             <div class="row" data-aos="fade-up">
