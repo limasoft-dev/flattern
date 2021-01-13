@@ -56,22 +56,34 @@
                     <h6 class="m-0 font-weight-bold text-primary">Morada</h6>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form name="fmorada" action="{{route('morada.update',1)}}" method="post">
+                        @csrf
+                        @method('put')
                         <div class="form-group">
-                        <label for="morada">Morada</label>
-                        <input type="text" class="form-control" id="morada" value="{{$dados['morada']}}">
+                            <label for="morada">Morada</label>
+                            <input type="text" class="form-control" name="morada" value="{{$dados['morada']}}">
+                            @error('morada')
+                                <div class="text-danger">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label for="cpostal">Códido Postal</label>
-                            <input type="text" class="form-control" id="cpostal" value="{{$dados['cpostal']}}">
+                            <label for="cpostal">Código Postal</label>
+                            <input type="text" class="form-control" name="cpostal" value="{{$dados['cpostal']}}">
+                            @error('cpostal')
+                                <div class="text-danger">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="localidade">Localidade</label>
-                            <input type="text" class="form-control" id="localidade" value="{{$dados['localidade']}}">
+                            <input type="text" class="form-control" name="localidade" value="{{$dados['localidade']}}">
+                            @error('localidade')
+                                <div class="text-danger">{{$message}}</div>
+                            @enderror
                         </div>
 
                         <button type="submit" class="btn btn-primary">Guardar Alterações</button>
                     </form>
+
                 </div>
             </div>
 
@@ -84,26 +96,41 @@
                     <h6 class="m-0 font-weight-bold text-primary">Contactos</h6>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form name="femailphone" action="{{route('emailphone.update',1)}}" method="post">
+                        @csrf
+                        @method('put')
                         <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" value="{{$dados['email']}}">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" value="{{$dados['email']}}">
+                            @error('email')
+                                <div class="text-danger">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="emailsec">Email Alternativo</label>
-                            <input type="email" class="form-control" id="emailsec" value="{{$dados['emailsec']}}">
+                            <input type="emailsec" class="form-control" name="emailsec" value="{{$dados['emailsec']}}">
+                            @error('emailsec')
+                                <div class="text-danger">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="telefone">Telefone</label>
-                            <input type="text" class="form-control" id="telefone" value="{{$dados['telefone']}}">
+                            <input type="text" class="form-control" name="telefone" value="{{$dados['telefone']}}">
+                            @error('telefone')
+                                <div class="text-danger">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="telefonesec">Telefone Alternativo</label>
-                            <input type="text" class="form-control" id="telefonesec" value="{{$dados['telefonesec']}}">
+                            <input type="text" class="form-control" name="telefonesec" value="{{$dados['telefonesec']}}">
+                            @error('telefonesec')
+                                <div class="text-danger">{{$message}}</div>
+                            @enderror
                         </div>
 
                         <button type="submit" class="btn btn-primary">Guardar Alterações</button>
                     </form>
+                    
                 </div>
             </div>
 

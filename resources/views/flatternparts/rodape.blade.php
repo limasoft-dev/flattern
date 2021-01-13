@@ -2,7 +2,7 @@
     $config = Http::get(config('app.api').'/api/getconfigs')->json();
     $caminho = $config['mypath'].'api/getservicos';
     $servicos = Http::get($caminho)->json();
-    $config = Http::get('http://127.0.0.1:8000/api/getconfigs')->json();
+    $caminho = $config['mypath'].'api/getlinks';
     $links = Http::get($caminho)->json();
 @endphp
 <!-- ======= Footer ======= -->

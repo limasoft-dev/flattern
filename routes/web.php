@@ -37,5 +37,7 @@ Route::middleware(['auth:sanctum', 'verified', 'authsad'])->group(function () {
 
     Route::get('sad/firma/contactos',[FirmaController::class,'contactos'])->name('sad.firma.contactos');
     Route::put('entidade/{id}',[FirmaController::class,'entidadeupdate'])->name('entidade.update');
+    Route::put('morada/{id}',[FirmaController::class,'moradaupdate'])->name('morada.update');
+    Route::put('emailphone/{id}',[FirmaController::class,'emailphoneupdate'])->name('emailphone.update');
 
 });
