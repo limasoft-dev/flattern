@@ -9,7 +9,7 @@
         <div class="card bg-success text-white shadow">
             <div class="card-body">
                 {{ session('success') }}
-                <div class="text-white-50 small">#1cc88a</div>
+
             </div>
         </div>
     @endif
@@ -130,10 +130,11 @@
 
                         <button type="submit" class="btn btn-primary">Guardar Alterações</button>
                     </form>
-                    
+
                 </div>
             </div>
 
         </div>
     </div>
 @endsection
+

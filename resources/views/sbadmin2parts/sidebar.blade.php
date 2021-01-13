@@ -39,7 +39,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Personalizar:</h6>
                 <a class="collapse-item" href="{{route('sad.firma.contactos')}}">Contactos</a>
-                <a class="collapse-item" href="#">RedesSociais</a>
+                <a class="collapse-item" href="{{route('sad.firma.socials')}}">Redes Sociais</a>
             </div>
         </div>
     </li>
