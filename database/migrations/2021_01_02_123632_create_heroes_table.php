@@ -17,8 +17,8 @@ class CreateHeroesTable extends Migration
             $table->id();
             $table->string('titulo');
             $table->string('texto');
-            $table->string('linki')->nullable();
-            $table->string('linke')->nullable();
+            $table->string('imagem');
+            $table->string('link')->nullable();
             $table->integer('ordem');
             $table->timestamps();
         });

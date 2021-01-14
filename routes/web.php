@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdmController;
 use App\Http\Controllers\FirmaController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\HerosCotroller;
 use App\Http\Controllers\SadController;
 use App\Http\Controllers\UsrController;
 use Illuminate\Support\Facades\Route;
@@ -43,5 +44,7 @@ Route::middleware(['auth:sanctum', 'verified', 'authsad'])->group(function () {
     Route::put('emailphone/{id}',[FirmaController::class,'emailphoneupdate'])->name('emailphone.update');
 
     Route::put('socials/{id}',[FirmaController::class,'socialsupdate'])->name('socials.update');
+
+    Route::resource('destaques',HerosCotroller::class);
 
 });

@@ -34,7 +34,7 @@ class FirmaController extends Controller
 
     public function moradaupdate(Request $request, $id){
         $request->validate([
-            'morada' => 'required|max:20',
+            'morada' => 'required|max:255',
             'cpostal' => 'required|string|max:255',
             'localidade' => 'required|string|max:255'
         ]);

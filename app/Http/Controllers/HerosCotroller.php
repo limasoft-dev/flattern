@@ -18,7 +18,8 @@ class HerosCotroller extends Controller
 
      public function index()
     {
-
+        $heros = Hero::orderBy('ordem')->get();
+        return view ('sad.destaques.index',compact('heros'));
     }
 
     /**
