@@ -38,8 +38,8 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Personalizar:</h6>
-                <a class="collapse-item" href="{{route('sad.firma.contactos')}}">Contactos</a>
-                <a class="collapse-item" href="{{route('sad.firma.socials')}}">Redes Sociais</a>
+                <a class="collapse-item" href="{{route('firma.contactos')}}">Contactos</a>
+                <a class="collapse-item" href="{{route('firma.socials')}}">Redes Sociais</a>
             </div>
         </div>
     </li>
@@ -55,7 +55,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Gerir:</h6>
                 <a class="collapse-item" href="{{route('destaques.index')}}">Destaques</a>
-                <a class="collapse-item" href="#">Chamada</a>
+                <a class="collapse-item" href="{{route('firma.chamadah')}}">Chamada</a>
                 <a class="collapse-item" href="#">Serviços</a>
                 <a class="collapse-item" href="#">Portfólio</a>
                 <a class="collapse-item" href="#">Redes Sociais</a>

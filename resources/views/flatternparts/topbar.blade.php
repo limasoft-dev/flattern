@@ -1,7 +1,3 @@
-@php
-    $config = Http::get(config('app.api').'/api/getconfigs')->json();
-@endphp
-
 <!-- ======= Top Bar ======= -->
 <section id="topbar" class="d-none d-lg-block">
     <div class="container d-flex">

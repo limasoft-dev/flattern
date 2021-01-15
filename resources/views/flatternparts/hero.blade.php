@@ -1,5 +1,4 @@
 @php
-    $config = Http::get(config('app.api').'/api/getconfigs')->json();
     $caminho = $config['mypath'].'api/getheros';
     $heros = Http::get($caminho)->json();
     $primeiro = 0;
@@ -16,7 +15,11 @@
                             <div class="carousel-content animate__animated animate__fadeInUp">
                                 <h2>{{$hero['titulo']}}</h2>
                                 <p>{{$hero['texto']}}.</p>
-                                <div class="text-center"><a href="{{$hero['link']}}" class="btn-get-started">Saber mais</a></div>
+                                @if (!($hero['link']==""))
+                                    <div class="text-center">
+                                        <a href="{{$hero['link']}}" class="btn-get-started">Saber mais</a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>

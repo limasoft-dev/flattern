@@ -3,6 +3,7 @@
 @section('head')
     @php
         $page = "home";
+        $config = Http::get(config('app.api').'/api/getconfigs')->json();
     @endphp
 @endsection
 

@@ -16,6 +16,10 @@ class FirmaController extends Controller
         $dados = Config::findOrFail(1);
         return view ('adm.socials',compact('dados'));
     }
+    public function chamadah(){
+        $dados = Config::findOrFail(1);
+        return view ('adm.chamadah',compact('dados'));
+    }
 
     public function entidadeupdate(Request $request, $id){
         $request->validate([
@@ -29,7 +33,7 @@ class FirmaController extends Controller
                 'longname' => $data['longname'],
                 'mypath' => $data['mypath'],
             ]);
-        return redirect(route('sad.firma.contactos'))->with('success','Dados guardados com sucesso');
+        return redirect(route('firma.contactos'))->with('success','Dados guardados com sucesso');
     }
 
     public function moradaupdate(Request $request, $id){
@@ -44,7 +48,7 @@ class FirmaController extends Controller
                 'cpostal' => $data['cpostal'],
                 'localidade' => $data['localidade'],
             ]);
-        return redirect(route('sad.firma.contactos'))->with('success','Dados guardados com sucesso');
+        return redirect(route('firma.contactos'))->with('success','Dados guardados com sucesso');
     }
 
     public function emailphoneupdate(Request $request, $id){
@@ -61,7 +65,7 @@ class FirmaController extends Controller
                 'telefone' => $data['telefone'],
                 'telefonesec' => $data['telefonesec'],
             ]);
-        return redirect(route('sad.firma.contactos'))->with('success','Dados guardados com sucesso');
+        return redirect(route('firma.contactos'))->with('success','Dados guardados com sucesso');
     }
 
     public function socialsupdate(Request $request, $id){
@@ -80,6 +84,27 @@ class FirmaController extends Controller
                 'skype' => $data['skype'],
                 'linkedin' => $data['linkedin'],
             ]);
-        return redirect(route('sad.firma.socials'))->with('success','Dados guardados com sucesso');
+        return redirect(route('firma.socials'))->with('success','Dados guardados com sucesso');
+    }
+
+    public function chamadahupdate(Request $request, $id){
+        $request->validate([
+            'chtitp1' => 'nullable|max:255',
+            'chtitp2' => 'nullable|max:255',
+            'chtitp3' => 'nullable|max:255',
+            'chtexto' => 'nullable|max:255',
+            'chtxtlink' => 'nullable|max:255',
+            'chlink' => 'nullable|url|max:255',
+        ]);
+        $data = $request->all();
+        Config::where(['id'=>$id])->update([
+                'chtitp1' => $data['chtitp1'],
+                'chtitp2' => $data['chtitp2'],
+                'chtitp3' => $data['chtitp3'],
+                'chtexto' => $data['chtexto'],
+                'chtxtlink' => $data['chtxtlink'],
+                'chlink' => $data['chlink'],
+            ]);
+        return redirect(route('firma.chamadah'))->with('success','Dados guardados com sucesso');
     }
 }

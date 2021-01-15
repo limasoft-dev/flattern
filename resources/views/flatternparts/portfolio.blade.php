@@ -1,5 +1,4 @@
 @php
-    $config = Http::get(config('app.api').'/api/getconfigs')->json();
     $caminho = $config['mypath'].'api/getcategorias';
     $categorias = Http::get($caminho)->json();
     $caminho = $config['mypath'].'api/getportefolios';

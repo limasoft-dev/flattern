@@ -1,12 +1,8 @@
-@php
-    $config = Http::get(config('app.api').'/api/getconfigs')->json();
-@endphp
-
 <!-- ======= Header ======= -->
 <header id="header">
     <div class="container d-flex">
         <div class="logo mr-auto">
-            <h1 class="text-light"><a href="/">
+            <h1 class="text-light"><a href="{{route('inicio')}}">
                 @if (!($config['shortname'] == ""))
                     {{ $config['shortname'] }}
                 @else

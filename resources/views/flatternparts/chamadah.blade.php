@@ -1,9 +1,3 @@
-@php
-    $config = Http::get(config('app.api').'/api/getconfigs')->json();
-    $caminho = $config['mypath'].'api/getclientes';
-    $clientes = Http::get($caminho)->json();
-@endphp
-
 <!-- ======= Cta Section ======= -->
 @if (($config['chtitp1']<>"") or ($config['chtitp2']<>"") or ($config['chtitp3']<>""))
 <section id="cta" class="cta">

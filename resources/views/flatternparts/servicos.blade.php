@@ -1,5 +1,4 @@
 @php
-    $config = Http::get(config('app.api').'/api/getconfigs')->json();
     $caminho = $config['mypath'].'api/getservicos';
     $servicos = Http::get($caminho)->json();
     $delay = 0;

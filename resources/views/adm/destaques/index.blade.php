@@ -60,20 +60,33 @@
 
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-lg-4 mb-4">
+                                    <a href="{{route('destaques.edit',$hero->id)}}" class="btn btn-warning btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-pen"></i>
+                                        </span>
+                                        <span class="text">Alterar destaque</span>
+                                    </a>
+                                </div>
+                                <div class="col-lg-8 mb-4">
+                                    <form action="{{route('destaques.destroy',$hero->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-icon-split">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                            <span class="text">Eliminar destaque</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
 
-                            <a href="{{route('destaques.edit',$hero->id)}}" class="btn btn-warning btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-pen"></i>
-                                </span>
-                                <span class="text">Alterar destaque</span>
-                            </a>
 
-                            <a href="#" class="btn btn-danger btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-trash"></i>
-                                </span>
-                                <span class="text">Eliminar destaque</span>
-                            </a>
+
+
+
                             <div class="my-2"></div>
 
                         </div>
