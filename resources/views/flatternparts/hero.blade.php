@@ -11,12 +11,12 @@
 
             <div class="carousel-inner" role="listbox">
                 @foreach ($heros as $hero)
-                    <div class="carousel-item <?php if ($primeiro == 0) { echo"active";$primeiro=1;}?>" style="background-image: url({{asset('flattern/assets/img/slide/slide-1.jpg')}});">
+                    <div class="carousel-item <?php if ($primeiro == 0) { echo"active";$primeiro=1;}?>" style="background-image: url({{asset('appimages/destaques/'.$hero['imagem'])}});">
                         <div class="carousel-container">
                             <div class="carousel-content animate__animated animate__fadeInUp">
                                 <h2>{{$hero['titulo']}}</h2>
                                 <p>{{$hero['texto']}}.</p>
-                                <div class="text-center"><a href="{{$hero['linke']}}" class="btn-get-started">Saber mais</a></div>
+                                <div class="text-center"><a href="{{$hero['link']}}" class="btn-get-started">Saber mais</a></div>
                             </div>
                         </div>
                     </div>

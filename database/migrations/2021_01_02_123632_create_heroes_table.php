@@ -16,10 +16,10 @@ class CreateHeroesTable extends Migration
         Schema::create('heroes', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
-            $table->string('texto');
+            $table->text('texto');
             $table->string('imagem');
             $table->string('link')->nullable();
-            $table->integer('ordem');
+            $table->integer('ordem')->unique();
             $table->timestamps();
         });
     }

@@ -15,17 +15,26 @@
     @endif
     <div class="row">
         <div class="col-lg-12 mb-4">
-            <a href="#">Create</a>
+            <a href="{{route('destaques.create')}}" class="btn btn-success btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span class="text">Destaque</span>
+            </a>
+            <div class="my-2"></div>
 
             @foreach ($heros as $hero)
                 <div class="card shadow mb-4">
                     <!-- Card Header - Accordion -->
                     <a href="#collapse{{$hero->id}}" class="d-block card-header py-3" data-toggle="collapse"
                         role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-primary">{{$hero->titulo}}</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            <span class="badge badge-pill badge-primary">{{$hero->ordem}}</span>
+                            {{$hero->titulo}}
+                        </h6>
                     </a>
                     <!-- Card Content - Collapse -->
-                    <div class="collapse show" id="collapse{{$hero->id}}">
+                    <div class="collapse" id="collapse{{$hero->id}}">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-4 mb-4">
@@ -36,10 +45,36 @@
                                     @endif
                                 </div>
                                 <div class="col-lg-8 mb-4">
-                                    {{$hero->texto}}<br>
-                                    <a name="" id="" class="btn btn-primary" href="" role="button">{{$hero->link}}</a>
+                                    <div class="form-group">
+                                      <label for="">Descrição</label>
+                                      <textarea class="form-control" rows="5" disabled>{{$hero->texto}}</textarea>
+                                    </div>
+                                    <label></label>
+
+                                    <div class="form-group">
+                                      <label for="">Link</label>
+                                      <a name="" id="" class="btn btn-primary btn-block" href="{{$hero->link}}" target="blank" role="button">{{$hero->link}}</a>
+                                      <small id="helpId" class="text-muted">Prima o botão para testar o link</small>
+                                    </div>
+                                    <label></label>
+
                                 </div>
                             </div>
+
+                            <a href="{{route('destaques.edit',$hero->id)}}" class="btn btn-warning btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-pen"></i>
+                                </span>
+                                <span class="text">Alterar destaque</span>
+                            </a>
+
+                            <a href="#" class="btn btn-danger btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-trash"></i>
+                                </span>
+                                <span class="text">Eliminar destaque</span>
+                            </a>
+                            <div class="my-2"></div>
 
                         </div>
                     </div>
