@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Config;
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
@@ -19,7 +20,9 @@ class ClientesController extends Controller
 
     public function index()
     {
-        //
+        $clientes = Cliente::orderBy('cliente')->get();
+        $dados = Config::findOrFail(1);
+        return view ('adm.clientes.index',compact('clientes','dados'));
     }
 
     /**
@@ -29,7 +32,7 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        //
+        return view ('adm.clientes.create');
     }
 
     /**
@@ -40,7 +43,24 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validação
+        $data = $request->validate([
+            'cliente' => 'required|max:255',
+            'imagem' => 'required|image|mimes:jpg,jpeg,png',
+        ]);
+        //Gravar na BD
+        $cliente = new Cliente;
+        $cliente->cliente = $data['cliente'];
+        if ($request->has('imagem')) {
+            $img = $request->file('imagem');
+            $imgnome = time() . '.' . $img->getClientOriginalExtension();
+            $path = 'appimages/clientes/';
+            $img->move($path,$imgnome);
+            $cliente->imagem = $imgnome;
+        }
+        $cliente->save();
+        //Redirecionar para o form das categorias com mensagem de feedback
+        return redirect(route('clientes.index'))->with('status', 'Cliente criado com sucesso!');
     }
 
     /**
@@ -62,7 +82,8 @@ class ClientesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente = Cliente::findOrFail($id);
+        return view ('adm.clientes.edit',compact('cliente'));
     }
 
     /**
@@ -74,7 +95,29 @@ class ClientesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Validação
+        $data = $request->validate([
+            'cliente' => 'required|max:255',
+            'imagem' => 'nullable|image|mimes:jpg,jpeg,png',
+        ]);
+        //Gravar na BD
+        if ($request->has('imagem')) {
+            $img = $request->file('imagem');
+            $imgnome = time() . '.' . $img->getClientOriginalExtension();
+            $path = 'appimages/clientes/';
+            $img->move($path,$imgnome);
+            Cliente::where('id',$id)->update([
+                'cliente' => $data['cliente'],
+                'imagem' => $imgnome
+            ]);
+        } else {
+            Cliente::where('id',$id)->update([
+                'cliente' => $data['cliente'],
+            ]);
+        }
+
+        //Redirecionar para o form das categorias com mensagem de feedback
+        return redirect(route('clientes.index'))->with('status', 'Cliente editado com sucesso!');
     }
 
     /**
@@ -85,6 +128,7 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cliente::where('id',$id)->delete();
+        return redirect(route('clientes.index'))->with('status', 'Cliente eliminado com sucesso!');
     }
 }

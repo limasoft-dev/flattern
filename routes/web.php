@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdmController;
 use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\FirmaController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HerosCotroller;
@@ -52,10 +53,12 @@ Route::middleware(['auth:sanctum', 'verified', 'authsad'])->group(function () {
 
     Route::put('titservicos/{id}',[FirmaController::class,'servicosupdate'])->name('titservicos.update');
     Route::put('titportefolio/{id}',[FirmaController::class,'portefolioupdate'])->name('titportefolio.update');
+    Route::put('titclientes/{id}',[FirmaController::class,'clientesupdate'])->name('titclientes.update');
 
     Route::resource('destaques',HerosCotroller::class);
     Route::resource('servicos',ServicosController::class);
     Route::resource('portefolios',PortefoliosController::class);
     Route::resource('categorias',CategoriasController::class);
+    Route::resource('clientes',ClientesController::class);
 
 });

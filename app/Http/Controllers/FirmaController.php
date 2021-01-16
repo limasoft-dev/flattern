@@ -133,4 +133,19 @@ class FirmaController extends Controller
             ]);
         return redirect(route('portefolios.index'))->with('success','Titulo guardado com sucesso');
     }
+
+    public function clientesupdate(Request $request, $id){
+        $request->validate([
+            'cltitp1' => 'nullable|max:255',
+            'cltitp2' => 'nullable|max:255',
+            'cltexto' => 'nullable|max:255',
+        ]);
+        $data = $request->all();
+        Config::where(['id'=>$id])->update([
+                'cltitp1' => $data['cltitp1'],
+                'cltitp2' => $data['cltitp2'],
+                'cltexto' => $data['cltexto'],
+            ]);
+        return redirect(route('clientes.index'))->with('success','Cliente guardado com sucesso');
+    }
 }

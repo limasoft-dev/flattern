@@ -58,7 +58,7 @@
                 <a class="collapse-item" href="{{route('firma.chamadah')}}">Chamada</a>
                 <a class="collapse-item" href="{{route('servicos.index')}}">Serviços</a>
                 <a class="collapse-item" href="{{route('portefolios.index')}}">Portfólio</a>
-                <a class="collapse-item" href="#">Parceiros</a>
+                <a class="collapse-item" href="{{route('clientes.index')}}">Clientes</a>
                 <a class="collapse-item" href="#">Equipa</a>
             </div>
         </div>
