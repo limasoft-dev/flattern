@@ -82,7 +82,8 @@ class ServicosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $servico = Servico::findOrFail($id);
+        return view ('adm.servicos.edit',compact('servico'));
     }
 
     /**
@@ -94,7 +95,25 @@ class ServicosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Validação
+        $data = $request->validate([
+            'titulo' => 'required|max:255',
+            'texto' => 'required',
+            'link' => 'nullable|url|max:255',
+            'ordem' => 'required',
+            'icon' => 'required|max:255',
+        ]);
+        //Gravar na BD
+        Servico::where('id',$id)->update([
+            'titulo' => $data['titulo'],
+            'texto' => $data['texto'],
+            'link' => $data['link'],
+            'ordem' => $data['ordem'],
+            'icon' => $data['icon'],
+        ]);
+
+        //Redirecionar para o form das categorias com mensagem de feedback
+        return redirect(route('servicos.index'))->with('status', 'Serviço alterado com sucesso!');
     }
 
     /**
@@ -105,6 +124,7 @@ class ServicosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Servico::where('id',$id)->delete();
+        return redirect(route('servicos.index'))->with('status', 'Serviço eliminado com sucesso!');
     }
 }

@@ -19,7 +19,7 @@ class CreateServicosTable extends Migration
             $table->string('link')->nullable();
             $table->string('texto');
             $table->string('icon');
-            $table->integer('ordem');
+            $table->integer('ordem')->unique();
             $table->timestamps();
         });
     }

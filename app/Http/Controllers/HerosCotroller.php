@@ -68,11 +68,6 @@ class HerosCotroller extends Controller
             'imagem' => 'image|mimes:jpg,jpeg,png',
         ]);
         //Gravar na BD
-        $hero = new Hero;
-        $hero->titulo = $data['titulo'];
-        $hero->texto = $data['texto'];
-        $hero->link = $data['link'];
-        $hero->ordem = $data['ordem'];
         if ($request->has('imagem')) {
             $img = $request->file('imagem');
             $imgnome = time() . '.' . $img->getClientOriginalExtension();
