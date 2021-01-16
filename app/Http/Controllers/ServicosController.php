@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Config;
 use App\Models\Servico;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,9 @@ class ServicosController extends Controller
 
     public function index()
     {
-        //
+        $servicos = Servico::orderBy('ordem')->get();
+        $dados = Config::findOrFail(1);
+        return view ('adm.servicos.index',compact('servicos','dados'));
     }
 
     /**
@@ -29,7 +32,7 @@ class ServicosController extends Controller
      */
     public function create()
     {
-        //
+        return view ('adm.servicos.create');
     }
 
     /**
@@ -40,7 +43,24 @@ class ServicosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validação
+        $data = $request->validate([
+            'titulo' => 'required|max:255',
+            'texto' => 'required',
+            'link' => 'nullable|url|max:255',
+            'ordem' => 'required',
+            'icon' => 'required|max:255',
+        ]);
+        //Gravar na BD
+        $servicos = new Servico();
+        $servicos->titulo = $data['titulo'];
+        $servicos->texto = $data['texto'];
+        $servicos->link = $data['link'];
+        $servicos->ordem = $data['ordem'];
+        $servicos->icon = $data['icon'];
+        $servicos->save();
+        //Redirecionar para o form das categorias com mensagem de feedback
+        return redirect(route('servicos.index'))->with('status', 'Serviço criado com sucesso!');
     }
 
     /**

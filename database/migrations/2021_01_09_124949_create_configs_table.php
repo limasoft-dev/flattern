@@ -31,25 +31,25 @@ class CreateConfigsTable extends Migration
             $table->string('skype')->nullable();
             $table->string('linkedin')->nullable();
             //CHAMADA HORIZONTAL
-            $table->string('chtitp1')->default('Temos mais de ');
-            $table->string('chtitp2')->default('1.000 clientes');
-            $table->string('chtitp3')->default('registados');
-            $table->string('chtexto')->default('Junte-se a nós agora submetendo uma proposta de inscrição');
-            $table->string('chtxtlink')->default('Preencher proposta');
-            $table->string('chlink')->default('#');
+            $table->string('chtitp1')->default('Temos mais de ')->nullable();
+            $table->string('chtitp2')->default('1.000 clientes')->nullable();
+            $table->string('chtitp3')->default('registados')->nullable();
+            $table->string('chtexto')->default('Junte-se a nós agora submetendo uma proposta de inscrição')->nullable();
+            $table->string('chtxtlink')->default('Preencher proposta')->nullable();
+            $table->string('chlink')->default('#')->nullable();
             //SERVIÇOS
-            $table->string('servtitp1')->default('Os nossos ');
-            $table->string('servtitp2')->default('Serviços');
+            $table->string('servtitp1')->default('Os nossos ')->nullable();
+            $table->string('servtitp2')->default('Serviços')->nullable();
             //PORTEFOLIOS
-            $table->string('pttitp1')->default('Alguns dos nossos');
-            $table->string('pttitp2')->default('trabalhos recentes');
+            $table->string('pttitp1')->default('Alguns dos nossos')->nullable();
+            $table->string('pttitp2')->default('trabalhos recentes')->nullable();
             //CLIENTES
-            $table->string('cltitp1')->default('Alguns dos');
-            $table->string('cltitp2')->default('nossos parceiros');
-            $table->string('cltexto')->default('A base para o sucesso!');
+            $table->string('cltitp1')->default('Alguns dos')->nullable();
+            $table->string('cltitp2')->default('nossos parceiros')->nullable();
+            $table->string('cltexto')->default('A base para o sucesso!')->nullable();
             //FOOTER
-            $table->string('newslttit')->default('Newsletter');
-            $table->string('newslttexto')->default('Fique a par das nossas novidades');
+            $table->string('newslttit')->default('Newsletter')->nullable();
+            $table->string('newslttexto')->default('Fique a par das nossas novidades')->nullable();
 
             $table->timestamps();
         });

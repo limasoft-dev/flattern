@@ -56,7 +56,7 @@
                 <h6 class="collapse-header">Gerir:</h6>
                 <a class="collapse-item" href="{{route('destaques.index')}}">Destaques</a>
                 <a class="collapse-item" href="{{route('firma.chamadah')}}">Chamada</a>
-                <a class="collapse-item" href="#">Serviços</a>
+                <a class="collapse-item" href="{{route('servicos.index')}}">Serviços</a>
                 <a class="collapse-item" href="#">Portfólio</a>
                 <a class="collapse-item" href="#">Redes Sociais</a>
                 <a class="collapse-item" href="#">Parceiros</a>

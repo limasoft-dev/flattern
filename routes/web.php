@@ -5,6 +5,7 @@ use App\Http\Controllers\FirmaController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HerosCotroller;
 use App\Http\Controllers\SadController;
+use App\Http\Controllers\ServicosController;
 use App\Http\Controllers\UsrController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,9 @@ Route::middleware(['auth:sanctum', 'verified', 'authsad'])->group(function () {
     Route::get('firma/chamadah',[FirmaController::class,'chamadah'])->name('firma.chamadah');
     Route::put('chamadah/{id}',[FirmaController::class,'chamadahupdate'])->name('chamadah.update');
 
+    Route::put('titservicos/{id}',[FirmaController::class,'servicosupdate'])->name('titservicos.update');
+
     Route::resource('destaques',HerosCotroller::class);
+    Route::resource('servicos',ServicosController::class);
 
 });

@@ -107,4 +107,17 @@ class FirmaController extends Controller
             ]);
         return redirect(route('firma.chamadah'))->with('success','Dados guardados com sucesso');
     }
+
+    public function servicosupdate(Request $request, $id){
+        $request->validate([
+            'servtitp1' => 'nullable|max:255',
+            'servtitp2' => 'nullable|max:255',
+        ]);
+        $data = $request->all();
+        Config::where(['id'=>$id])->update([
+                'servtitp1' => $data['servtitp1'],
+                'servtitp2' => $data['servtitp2'],
+            ]);
+        return redirect(route('servicos.index'))->with('success','Titulo guardado com sucesso');
+    }
 }

@@ -16,7 +16,7 @@ class CreateServicosTable extends Migration
         Schema::create('servicos', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
-            $table->string('link');
+            $table->string('link')->nullable();
             $table->string('texto');
             $table->string('icon');
             $table->integer('ordem');

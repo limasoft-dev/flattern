@@ -3,8 +3,7 @@
     $servicos = Http::get($caminho)->json();
     $delay = 0;
 @endphp
-<!-- ======= Services Section ======= -->
-{{--@if (count($servicos)>0)--}}
+@if (($config['servtitp1']<>"") or ($config['servtitp2']<>""))
     <section id="services" class="services">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
@@ -15,7 +14,11 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="icon-box" data-aos="fade-up" data-aos-delay="{{$delay}}">
                             <div class="icon"><i class="{{$servico['icon']}}"></i></div>
-                            <h4 class="title"><a href="{{$servico['link']}}">{{$servico['titulo']}}</a></h4>
+                            @if ($servico['link']=="")
+                                <h4 class="title">{{$servico['titulo']}}</h4>
+                            @else
+                                <h4 class="title"><a href="{{$servico['link']}}">{{$servico['titulo']}}</a></h4>
+                            @endif
                             <p class="description">{{$servico['texto']}}</p>
                         </div>
                     </div>
@@ -25,5 +28,6 @@
                 @endforeach
             </div>
         </div>
-    </section><!-- End Services Section -->
-{{--@endif--}}
+    </section>
+@endif
+
