@@ -29,7 +29,7 @@ class CategoriasController extends Controller
      */
     public function create()
     {
-        //
+        return view ('adm.categorias.create');
     }
 
     /**
@@ -40,7 +40,16 @@ class CategoriasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validação
+        $data = $request->validate([
+            'categoria' => 'required|max:255|unique:categorias,categoria',
+        ]);
+        //Gravar na BD
+        $categoria = new Categoria();
+        $categoria->categoria = $data['categoria'];
+        $categoria->save();
+        //Redirecionar para o form das categorias com mensagem de feedback
+        return redirect(route('portefolios.index'))->with('status', 'Categoria criada com sucesso!');
     }
 
     /**
@@ -62,7 +71,8 @@ class CategoriasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categoria = Categoria::findOrFail($id);
+        return view ('adm.categorias.edit',compact('categoria'));
     }
 
     /**
@@ -74,7 +84,17 @@ class CategoriasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Validação
+        $data = $request->validate([
+            'categoria' => 'required|max:255',
+        ]);
+        //Gravar na BD
+        Categoria::where('id',$id)->update([
+            'categoria' => $data['categoria'],
+        ]);
+
+        //Redirecionar para o form das categorias com mensagem de feedback
+        return redirect(route('portefolios.index'))->with('status', 'Categoria alterada com sucesso!');
     }
 
     /**
@@ -85,6 +105,14 @@ class CategoriasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $categoria = Categoria::findOrFail($id);
+        if (count($categoria->portefolios)==0) {
+            Categoria::where('id',$id)->delete();
+            return redirect(route('portefolios.index'))->with('status', 'Categoria eliminada com sucesso!');
+        }else{
+            return redirect(route('portefolios.index'))->with('status', 'Categoria com items de portefólio. Eliminação não é possível!');
+        }
+
+
     }
 }

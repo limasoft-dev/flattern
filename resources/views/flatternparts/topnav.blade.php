@@ -18,11 +18,12 @@
             <ul>
                 <li @if ($page == "home") class="active" @endif><a href="{{route('inicio')}}">Início</a></li>
                 <li @if ($page == "about") class="active" @endif><a href="{{route('about')}}">Sobre Nós</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li @if ($page == "servicos") class="active" @endif><a href="#">Serviços</a></li>
+                <li @if ($page == "portefolio") class="active" @endif><a href="#">Portefólio</a></li>
+                <li @if ($page == "testemunhos") class="active" @endif><a href="#">Testemunhos</a></li>
+                <li @if ($page == "precos") class="active" @endif><a href="#">Preços</a></li>
+                <li @if ($page == "noticias") class="active" @endif><a href="#">Notícias</a></li>
+                <!--
                 <li class="drop-down"><a href="">Drop Down</a>
                     <ul>
                     <li><a href="#">Drop Down 1</a></li>
@@ -40,7 +41,8 @@
                     <li><a href="#">Drop Down 5</a></li>
                     </ul>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+                -->
+                <li @if ($page == "contactos") class="active" @endif><a href="#">Contactos</a></li>
                 @if (Route::has('login'))
                     @auth
                         <li class="drop-down"><a href="#">{{Auth::User()->name}}</a>

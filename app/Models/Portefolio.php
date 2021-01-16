@@ -12,8 +12,13 @@ class Portefolio extends Model
     protected $fillable = [
         'titulo',
         'texto',
-        'link',
+        'desenvolvimento',
         'imagem',
         'categoria_id',
     ];
+
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class);
+    }
 }

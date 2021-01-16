@@ -17,7 +17,7 @@ class CreatePortefoliosTable extends Migration
             $table->id();
             $table->string('titulo');
             $table->string('texto');
-            $table->string('link');
+            $table->text('desenvolvimento')->nullable();
             $table->string('imagem');
             $table->foreignId('categoria_id')->constrained();
             $table->timestamps();

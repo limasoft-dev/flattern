@@ -120,4 +120,17 @@ class FirmaController extends Controller
             ]);
         return redirect(route('servicos.index'))->with('success','Titulo guardado com sucesso');
     }
+
+    public function portefolioupdate(Request $request, $id){
+        $request->validate([
+            'pttitp1' => 'nullable|max:255',
+            'pttitp2' => 'nullable|max:255',
+        ]);
+        $data = $request->all();
+        Config::where(['id'=>$id])->update([
+                'pttitp1' => $data['pttitp1'],
+                'pttitp2' => $data['pttitp2'],
+            ]);
+        return redirect(route('portefolios.index'))->with('success','Titulo guardado com sucesso');
+    }
 }

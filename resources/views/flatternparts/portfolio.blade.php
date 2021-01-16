@@ -27,12 +27,14 @@
             <div class="row portfolio-container" data-aos="fade-up">
                 @foreach ($portefolios as $portefolio)
                     <div class="col-lg-4 col-md-6 portfolio-item filter-{{$portefolio['categoria_id']}}">
-                        <img src="{{asset('flattern/assets/img/portfolio/portfolio-1.jpg')}}" class="img-fluid" alt="">
+                        <img src="{{asset('appimages/portfolio/'.$portefolio['imagem'])}}" class="img-fluid" alt="">
                         <div class="portfolio-info">
                             <h4>{{$portefolio['titulo']}}</h4>
                             <p>{{$portefolio['texto']}}</p>
-                            <a href="{{asset('flattern/assets/img/portfolio/portfolio-1.jpg')}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{$portefolio['titulo']}}"><i class="bx bx-plus"></i></a>
-                            <a href="{{$portefolio['link']}}" class="details-link" title="Mais detalhes"><i class="bx bx-link"></i></a>
+                            <a href="{{asset('appimages/portfolio/'.$portefolio['imagem'])}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{$portefolio['titulo']}}"><i class="bx bx-plus"></i></a>
+                            <!--
+                            <a href="#" class="details-link" title="Mais detalhes"><i class="bx bx-link"></i></a>
+                            -->
                         </div>
                     </div>
                 @endforeach

@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\AdmController;
+use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\FirmaController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HerosCotroller;
+use App\Http\Controllers\PortefoliosController;
 use App\Http\Controllers\SadController;
 use App\Http\Controllers\ServicosController;
 use App\Http\Controllers\UsrController;
@@ -49,8 +51,11 @@ Route::middleware(['auth:sanctum', 'verified', 'authsad'])->group(function () {
     Route::put('chamadah/{id}',[FirmaController::class,'chamadahupdate'])->name('chamadah.update');
 
     Route::put('titservicos/{id}',[FirmaController::class,'servicosupdate'])->name('titservicos.update');
+    Route::put('titportefolio/{id}',[FirmaController::class,'portefolioupdate'])->name('titportefolio.update');
 
     Route::resource('destaques',HerosCotroller::class);
     Route::resource('servicos',ServicosController::class);
+    Route::resource('portefolios',PortefoliosController::class);
+    Route::resource('categorias',CategoriasController::class);
 
 });

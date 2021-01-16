@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'categoria',
+    ];
+
+    public function portefolios()
+    {
+        return $this->hasMany(Portefolio::class);
+    }
 }

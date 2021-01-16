@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('sad.dashboard')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -57,8 +57,7 @@
                 <a class="collapse-item" href="{{route('destaques.index')}}">Destaques</a>
                 <a class="collapse-item" href="{{route('firma.chamadah')}}">Chamada</a>
                 <a class="collapse-item" href="{{route('servicos.index')}}">Serviços</a>
-                <a class="collapse-item" href="#">Portfólio</a>
-                <a class="collapse-item" href="#">Redes Sociais</a>
+                <a class="collapse-item" href="{{route('portefolios.index')}}">Portfólio</a>
                 <a class="collapse-item" href="#">Parceiros</a>
                 <a class="collapse-item" href="#">Equipa</a>
             </div>
