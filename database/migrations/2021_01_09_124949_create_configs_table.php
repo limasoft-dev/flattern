@@ -50,6 +50,10 @@ class CreateConfigsTable extends Migration
             //FOOTER
             $table->string('newslttit')->default('Newsletter')->nullable();
             $table->string('newslttexto')->default('Fique a par das nossas novidades')->nullable();
+            //TEAM
+            $table->string('teamtitp1')->default('A nossa')->nullable();
+            $table->string('teamtitp2')->default('equipa')->nullable();
+            $table->string('teamtexto')->default('Á sua disposição')->nullable();
 
             $table->timestamps();
         });
