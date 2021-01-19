@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [GuestController::class,'index'])->name('inicio');
 Route::get('/about', [GuestController::class,'about'])->name('about');
+Route::get('/gservicos', [GuestController::class,'servicos'])->name('gservicos');
+Route::get('/gportfolio', [GuestController::class,'portfolio'])->name('gportfolio');
 
 //USR - Utilizador
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {

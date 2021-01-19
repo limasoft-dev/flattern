@@ -2,7 +2,9 @@
 <header id="header">
     <div class="container d-flex">
         <div class="logo mr-auto">
+
             <h1 class="text-light"><a href="{{route('inicio')}}">
+                <img src="{{asset('appimages/logo.png')}}" alt="" class="img-fluid">
                 @if (!($config['shortname'] == ""))
                     {{ $config['shortname'] }}
                 @else
@@ -17,9 +19,9 @@
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li @if ($page == "home") class="active" @endif><a href="{{route('inicio')}}">Início</a></li>
-                <li @if ($page == "about") class="active" @endif><a href="{{route('about')}}">Sobre Nós</a></li>
-                <li @if ($page == "servicos") class="active" @endif><a href="#">Serviços</a></li>
-                <li @if ($page == "portefolio") class="active" @endif><a href="#">Portefólio</a></li>
+                <li @if ($page == "about") class="active" @endif><a href="#">Sobre Nós</a></li>
+                <li @if ($page == "servicos") class="active" @endif><a href="{{route('gservicos')}}">Serviços</a></li>
+                <li @if ($page == "portefolio") class="active" @endif><a href="{{route('gportfolio')}}">Portefólio</a></li>
                 <li @if ($page == "testemunhos") class="active" @endif><a href="#">Testemunhos</a></li>
                 <li @if ($page == "precos") class="active" @endif><a href="#">Preços</a></li>
                 <li @if ($page == "noticias") class="active" @endif><a href="#">Notícias</a></li>

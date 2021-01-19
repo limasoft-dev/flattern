@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             <label for="mypath">App Path</label>
-                            <input type="text" class="form-control" name="mypath" value="{{$dados['mypath']}}">
+                            <input type="text" class="form-control" name="mypath" value="{{$dados['mypath']}}" readonly>
                             @error('mypath')
                                 <div class="text-danger">{{$message}}</div>
                             @enderror

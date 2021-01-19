@@ -13,6 +13,7 @@
 
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>
+                <img src="{{asset('appimages/logo.png')}}" width="50px" height="50px" alt="" class="img-fluid">
                 @if (!($config['shortname'] == ""))
                     {{ $config['shortname'] }}
                 @else

@@ -31,6 +31,14 @@
                 font-size: 3.5rem;
                 }
             }
+            .meu {
+                background-color: #d80618;
+                color: #fff;
+            }
+            .meu:hover {
+                background-color: #aa2934;
+                color: rgb(228, 161, 161);
+            }
         </style>
 
         <!-- Custom styles for this template -->
@@ -56,8 +64,7 @@
                     Lembrar-me
                 </label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+            <button class="btn btn-lg btn-block meu" type="submit">Entrar</button>
         </form>
     </body>
 </html>

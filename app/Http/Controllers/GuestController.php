@@ -15,4 +15,12 @@ class GuestController extends Controller
     public function about(){
         return view ('guest.about');
     }
+
+    public function servicos(){
+        return view ('guest.servicos');
+    }
+
+    public function portfolio(){
+        return view ('guest.portfolio');
+    }
 }
