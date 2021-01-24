@@ -1,87 +1,56 @@
+@php
+    $caminho = $config['mypath'].'api/getteams';
+    $teams = Http::get($caminho)->json();
+@endphp
 <!-- ======= Our Team Section ======= -->
-<section id="team" class="team section-bg">
-    <div class="container">
+@if (!($teams == null))
 
-      <div class="section-title" data-aos="fade-up">
-        <h2>Our <strong>Team</strong></h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-      </div>
 
-      <div class="row">
+    <section id="team" class="team section-bg">
+        <div class="container">
 
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-          <div class="member" data-aos="fade-up">
-            <div class="member-img">
-              <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <a href=""><i class="icofont-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Walter White</h4>
-              <span>Chief Executive Officer</span>
-            </div>
-          </div>
+        <div class="section-title" data-aos="fade-up">
+            <h2>{{$config['teamtitp1']}} <strong>{{$config['teamtitp2']}}</strong></h2>
+            <p>{{$config['teamtexto']}}</p>
         </div>
 
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-          <div class="member" data-aos="fade-up" data-aos-delay="100">
-            <div class="member-img">
-              <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <a href=""><i class="icofont-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Sarah Jhonson</h4>
-              <span>Product Manager</span>
-            </div>
-          </div>
+        <div class="row">
+
+            @foreach ($teams as $team)
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="member" data-aos="fade-up">
+                        <div class="member-img">
+                        <img src="{{asset('appimages/teams/'.$team['imagem'])}}" class="img-fluid" alt="">
+                        <div class="social">
+                            @if (!($team['twitter']==""))
+                                <a href="{{$team['twitter']}}"><i class="icofont-twitter"></i></a>
+                            @endif
+                            @if (!($team['facebook']==""))
+                                <a href="{{$team['facebook']}}"><i class="icofont-facebook"></i></a>
+                            @endif
+                            @if (!($team['instagram']==""))
+                                <a href="{{$team['instagram']}}"><i class="icofont-instagram"></i></a>
+                            @endif
+                            @if (!($team['linkedin']==""))
+                                <a href="{{$team['linkedin']}}"><i class="icofont-linkedin"></i></a>
+                            @endif
+                        </div>
+                        </div>
+                        <div class="member-info">
+                        <h4>{{$team['nome']}}</h4>
+                        <span>{{$team['funcao']}}</span>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+
+
+
+
+
         </div>
 
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-          <div class="member" data-aos="fade-up" data-aos-delay="200">
-            <div class="member-img">
-              <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <a href=""><i class="icofont-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>William Anderson</h4>
-              <span>CTO</span>
-            </div>
-          </div>
         </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-          <div class="member" data-aos="fade-up" data-aos-delay="300">
-            <div class="member-img">
-              <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <a href=""><i class="icofont-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Amanda Jepson</h4>
-              <span>Accountant</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Our Team Section -->
+    </section><!-- End Our Team Section -->
+@endif

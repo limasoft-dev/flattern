@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Config;
-use App\Models\Team;
+use App\Models\Testemunho;
 use Illuminate\Http\Request;
 
-class TeamsController extends Controller
+class TestemunhosController extends Controller
 {
-    public function getteams(){
-        return Team::all();
+    public function gettestemunhos(){
+        return Testemunho::all();
     }
 
     public function index()
     {
-        $teams = Team::orderBy('nome')->get();
+        $testemunhos = Testemunho::orderBy('ordem')->get();
         $dados = Config::findOrFail(1);
-        return view ('adm.equipa.index',compact('teams','dados'));
+        return view ('adm.testemunhos.index',compact('testemunhos','dados'));
     }
 
     /**
@@ -26,7 +26,7 @@ class TeamsController extends Controller
      */
     public function create()
     {
-        return view ('adm.equipa.create');
+        return view ('adm.testemunhos.create');
     }
 
     /**
@@ -42,29 +42,25 @@ class TeamsController extends Controller
             'nome' => 'required|max:255',
             'funcao' => 'required|max:255',
             'imagem' => 'required|image|mimes:jpg,jpeg,png',
-            'twitter' => 'nullable|max:255',
-            'facebook' => 'nullable|max:255',
-            'instagram' => 'nullable|max:255',
-            'linkedin' => 'nullable|max:255',
+            'testemunho' => 'required|max:255',
+            'ordem' => 'required|gt:0'
         ]);
         //Gravar na BD
-        $team = new Team();
-        $team->nome = $data['nome'];
-        $team->funcao = $data['funcao'];
-        $team->twitter = $data['twitter'];
-        $team->facebook = $data['facebook'];
-        $team->instagram = $data['instagram'];
-        $team->linkedin = $data['linkedin'];
+        $testemunho = new Testemunho();
+        $testemunho->nome = $data['nome'];
+        $testemunho->funcao = $data['funcao'];
+        $testemunho->testemunho = $data['testemunho'];
+        $testemunho->ordem = $data['ordem'];
         if ($request->has('imagem')) {
             $img = $request->file('imagem');
             $imgnome = time() . '.' . $img->getClientOriginalExtension();
-            $path = 'appimages/teams/';
+            $path = 'appimages/testemunhos/';
             $img->move($path,$imgnome);
-            $team->imagem = $imgnome;
+            $testemunho->imagem = $imgnome;
         }
-        $team->save();
+        $testemunho->save();
         //Redirecionar para o form das categorias com mensagem de feedback
-        return redirect(route('teams.index'))->with('status', 'Membro criado com sucesso!');
+        return redirect(route('testemunhos.index'))->with('status', 'Testemunho criado com sucesso!');
     }
 
     /**
@@ -86,8 +82,8 @@ class TeamsController extends Controller
      */
     public function edit($id)
     {
-        $team = Team::findOrFail($id);
-        return view ('adm.equipa.edit',compact('team'));
+        $testemunho = Testemunho::findOrFail($id);
+        return view ('adm.testemunhos.edit',compact('testemunho'));
     }
 
     /**
@@ -104,39 +100,33 @@ class TeamsController extends Controller
             'nome' => 'required|max:255',
             'funcao' => 'required|max:255',
             'imagem' => 'nullable|image|mimes:jpg,jpeg,png',
-            'twitter' => 'nullable|max:255',
-            'facebook' => 'nullable|max:255',
-            'instagram' => 'nullable|max:255',
-            'linkedin' => 'nullable|max:255',
+            'testemunho' => 'required|max:255',
+            'ordem' => 'required|gt:0'
         ]);
         //Gravar na BD
         if ($request->has('imagem')) {
             $img = $request->file('imagem');
             $imgnome = time() . '.' . $img->getClientOriginalExtension();
-            $path = 'appimages/teams/';
+            $path = 'appimages/testemunhos/';
             $img->move($path,$imgnome);
-            Team::where('id',$id)->update([
+            Testemunho::where('id',$id)->update([
                 'nome' => $data['nome'],
                 'funcao' => $data['funcao'],
-                'twitter' => $data['twitter'],
-                'facebook' => $data['facebook'],
-                'instagram' => $data['instagram'],
-                'linkedin' => $data['linkedin'],
+                'testemunho' => $data['testemunho'],
+                'ordem' => $data['ordem'],
                 'imagem' => $imgnome
             ]);
         } else {
-            Team::where('id',$id)->update([
+            Testemunho::where('id',$id)->update([
                 'nome' => $data['nome'],
                 'funcao' => $data['funcao'],
-                'twitter' => $data['twitter'],
-                'facebook' => $data['facebook'],
-                'instagram' => $data['instagram'],
-                'linkedin' => $data['linkedin'],
+                'testemunho' => $data['testemunho'],
+                'ordem' => $data['ordem'],
             ]);
         }
 
         //Redirecionar para o form das categorias com mensagem de feedback
-        return redirect(route('teams.index'))->with('status', 'Membro editado com sucesso!');
+        return redirect(route('testemunhos.index'))->with('status', 'Testemunho editado com sucesso!');
     }
 
     /**
@@ -147,7 +137,7 @@ class TeamsController extends Controller
      */
     public function destroy($id)
     {
-        Team::where('id',$id)->delete();
-        return redirect(route('teams.index'))->with('status', 'Membro eliminado com sucesso!');
+        Testemunho::where('id',$id)->delete();
+        return redirect(route('testemunhos.index'))->with('status', 'Testemunho eliminado com sucesso!');
     }
 }

@@ -7,6 +7,8 @@ use App\Http\Controllers\HerosCotroller;
 use App\Http\Controllers\LinksController;
 use App\Http\Controllers\PortefoliosController;
 use App\Http\Controllers\ServicosController;
+use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\TestemunhosController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +34,5 @@ Route::get('/getportefolios',[PortefoliosController::class,'getportefolios']);
 Route::get('/getclientes',[ClientesController::class,'getclientes']);
 Route::get('/getlinks',[LinksController::class,'getlinks']);
 Route::get('/getconfigs',[ConfigsController::class,'getconfigs']);
+Route::get('/getteams',[TeamsController::class,'getteams']);
+Route::get('/gettestemunhos',[TestemunhosController::class,'gettestemunhos']);

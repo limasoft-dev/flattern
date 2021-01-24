@@ -148,4 +148,32 @@ class FirmaController extends Controller
             ]);
         return redirect(route('clientes.index'))->with('success','Cliente guardado com sucesso');
     }
+
+    public function teamsupdate(Request $request, $id){
+        $request->validate([
+            'teamtitp1' => 'nullable|max:255',
+            'teamtitp2' => 'nullable|max:255',
+            'teamtexto' => 'nullable|max:255',
+        ]);
+        $data = $request->all();
+        Config::where(['id'=>$id])->update([
+                'teamtitp1' => $data['teamtitp1'],
+                'teamtitp2' => $data['teamtitp2'],
+                'teamtexto' => $data['teamtexto'],
+            ]);
+        return redirect(route('teams.index'))->with('success','Equipa guardada com sucesso');
+    }
+
+    public function testemunhosupdate(Request $request, $id){
+        $request->validate([
+            'testemunhotitp1' => 'nullable|max:255',
+            'testemunhotitp2' => 'nullable|max:255',
+        ]);
+        $data = $request->all();
+        Config::where(['id'=>$id])->update([
+                'testemunhotitp1' => $data['testemunhotitp1'],
+                'testemunhotitp2' => $data['testemunhotitp2'],
+            ]);
+        return redirect(route('testemunhos.index'))->with('success','Testemunho guardado com sucesso');
+    }
 }

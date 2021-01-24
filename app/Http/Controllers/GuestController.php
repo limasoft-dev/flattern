@@ -23,4 +23,8 @@ class GuestController extends Controller
     public function portfolio(){
         return view ('guest.portfolio');
     }
+
+    public function contactos(){
+        return view ('guest.contactos');
+    }
 }

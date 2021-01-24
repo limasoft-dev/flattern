@@ -19,10 +19,9 @@
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li @if ($page == "home") class="active" @endif><a href="{{route('inicio')}}">Início</a></li>
-                <li @if ($page == "about") class="active" @endif><a href="#">Sobre Nós</a></li>
+                <li @if ($page == "about") class="active" @endif><a href="{{route('about')}}">Sobre Nós</a></li>
                 <li @if ($page == "servicos") class="active" @endif><a href="{{route('gservicos')}}">Serviços</a></li>
-                <li @if ($page == "portefolio") class="active" @endif><a href="{{route('gportfolio')}}">Portefólio</a></li>
-                <li @if ($page == "testemunhos") class="active" @endif><a href="#">Testemunhos</a></li>
+                <li @if ($page == "portefolio") class="active" @endif><a href="{{route('gportfolio')}}">Portfólio</a></li>
                 <li @if ($page == "precos") class="active" @endif><a href="#">Preços</a></li>
                 <li @if ($page == "noticias") class="active" @endif><a href="#">Notícias</a></li>
                 <!--
@@ -44,7 +43,7 @@
                     </ul>
                 </li>
                 -->
-                <li @if ($page == "contactos") class="active" @endif><a href="#">Contactos</a></li>
+                <li @if ($page == "contactos") class="active" @endif><a href="{{route('contactos')}}">Contactos</a></li>
                 @if (Route::has('login'))
                     @auth
                         <li class="drop-down"><a href="#">{{Auth::User()->name}}</a>

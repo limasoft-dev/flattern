@@ -43,6 +43,29 @@
     @include('flatternparts.topnav')
     <main id="main">
 
+        @error('nlemail')
+            <div class="container">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Subscrição inválida!</strong> {{$message}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        @enderror
+
+        @if (session('success'))
+            <div class="container">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Muito bem!</strong> {{ session('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+
+        @endif
+
         @yield('content')
     </main><!-- End #main -->
     <footer id="footer">

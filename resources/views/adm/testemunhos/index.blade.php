@@ -1,7 +1,7 @@
 @extends('layouts.sbadmin2')
 
 @section('pagetitle')
-    Equipa
+    Testemunhos
 @endsection
 
 @section('content')
@@ -20,7 +20,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Titulo</h6>
                 </div>
                 <div class="card-body">
-                    <form name="fclientes" action="{{route('titteams.update',1)}}" method="post">
+                    <form name="ftestemunhos" action="{{route('tittestemunhos.update',1)}}" method="post">
                         @csrf
                         @method('put')
 
@@ -28,26 +28,16 @@
 
                             <div class="row">
                                 <div class="col-lg-6 mb-4">
-                                    <label for="teamtitp1">Normal</label>
-                                    <input type="text" class="form-control" name="teamtitp1" value="{{$dados['teamtitp1']}}">
-                                    @error('teamtitp1')
+                                    <label for="testemunhotitp1">Normal</label>
+                                    <input type="text" class="form-control" name="testemunhotitp1" value="{{$dados['testemunhotitp1']}}">
+                                    @error('testemunhotitp1')
                                         <div class="text-danger">{{$message}}</div>
                                     @enderror
                                 </div>
                                 <div class="col-lg-6 mb-4">
-                                    <label for="teamtitp2">Destaque</label>
-                                    <input type="text" class="form-control" name="teamtitp2" value="{{$dados['teamtitp2']}}">
-                                    @error('teamtitp2')
-                                        <div class="text-danger">{{$message}}</div>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-12 mb-4">
-                                    <label for="teamtexto">Descrição</label>
-                                    <input type="text" class="form-control" name="teamtexto" value="{{$dados['teamtexto']}}">
-                                    @error('teamtexto')
+                                    <label for="testemunhotitp2">Destaque</label>
+                                    <input type="text" class="form-control" name="testemunhotitp2" value="{{$dados['testemunhotitp2']}}">
+                                    @error('testemunhotitp2')
                                         <div class="text-danger">{{$message}}</div>
                                     @enderror
                                 </div>
@@ -70,26 +60,27 @@
         <div class="col-lg-12 mb-4">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Membros</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Testemunhos</h6>
                 </div>
                 <div class="card-body">
-                    <a href="{{route('teams.create')}}" class="btn btn-success btn-icon-split">
+                    <a href="{{route('testemunhos.create')}}" class="btn btn-success btn-icon-split">
                         <span class="icon text-white-50">
                             <i class="fas fa-plus"></i>
                         </span>
-                        <span class="text">Membro</span>
+                        <span class="text">Testemunho</span>
                     </a>
                     <div class="my-2"></div>
 
                     <div class="row">
-                        @foreach ($teams as $team)
+                        @foreach ($testemunhos as $testemunho)
                             <div class="col-lg-2 mb-4">
                                 <div class="card">
-                                    <img src="{{asset('appimages/teams/'.$team->imagem)}}" class="card-img-top">
+                                    <img src="{{asset('appimages/testemunhos/'.$testemunho->imagem)}}" class="card-img-top">
                                     <div class="card-body">
-                                        <p class="card-text">{{$team->nome}}</p>
-                                        <p class="card-text">{{$team->funcao}}</p>
-                                        <a href="{{route('teams.edit',$team->id)}}" class="btn btn-warning btn-icon-split float-right">
+                                        <p class="card-text">{{$testemunho->ordem}} | {{$testemunho->nome}}</p>
+                                        <p class="card-text">{{$testemunho->funcao}}</p>
+                                        <p class="card-text">{{$testemunho->testemunho}}</p>
+                                        <a href="{{route('testemunhos.edit',$testemunho->id)}}" class="btn btn-warning btn-icon-split float-right">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-pen"></i>
                                             </span>

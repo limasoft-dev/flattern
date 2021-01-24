@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Newsletter;
+use App\Models\Contacto;
 use Illuminate\Http\Request;
 
-class NewslettersController extends Controller
+class ContactosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,14 +37,20 @@ class NewslettersController extends Controller
     {
         //Validação
         $data = $request->validate([
-            'nlemail' => 'required|email|max:255|unique:newsletters,email',
+            'nome' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'assunto' => 'required|max:255',
+            'menssagem' => 'required',
         ]);
         //Gravar na BD
-        $newsletter = new Newsletter();
-        $newsletter->email = $data['nlemail'];
-        $newsletter->save();
+        $contacto = new Contacto();
+        $contacto->nome = $data['nome'];
+        $contacto->email = $data['email'];
+        $contacto->assunto = $data['assunto'];
+        $contacto->menssagem = $data['menssagem'];
+        $contacto->save();
         //Redirecionar para o form das categorias com mensagem de feedback
-        return back()->with('success', 'Newsletter subscrita com sucesso!');
+        return back()->with('success', 'Contacto enviado com sucesso!');
     }
 
     /**

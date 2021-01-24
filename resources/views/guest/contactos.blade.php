@@ -13,10 +13,10 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>Sobre Nós</h2>
+                <h2>Contactos</h2>
                 <ol>
                 <li><a href="{{route('inicio')}}">Início</a></li>
-                <li>Sobre Nós</li>
+                <li>Contactos</li>
                 </ol>
             </div>
 
@@ -25,8 +25,7 @@
 
 
 
-    @include('flatternparts.team')
-    @include('flatternparts.testemunhos')
+    @include('flatternparts.contactos')
     <!-- End Breadcrumbs -->
     {{--
     @include('flatternparts.about')

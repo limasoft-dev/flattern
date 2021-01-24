@@ -54,6 +54,9 @@ class CreateConfigsTable extends Migration
             $table->string('teamtitp1')->default('A nossa')->nullable();
             $table->string('teamtitp2')->default('equipa')->nullable();
             $table->string('teamtexto')->default('Á sua disposição')->nullable();
+            //TESTEMUNHOS
+            $table->string('testemunhotitp1')->default('A opinião dos')->nullable();
+            $table->string('testemunhotitp2')->default('nossos clientes')->nullable();
 
             $table->timestamps();
         });

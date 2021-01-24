@@ -50,8 +50,9 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>{{ $config['newslttit'] }}</h4>
             <p>{{ $config['newslttexto'] }}</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscrever">
+            <form action="{{route('newsletter.store')}}" method="post">
+                @csrf
+                <input type="email" name="nlemail"><input type="submit" value="Subscrever">
             </form>
           </div>
 

@@ -3,12 +3,16 @@
 use App\Http\Controllers\AdmController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\ContactosController;
 use App\Http\Controllers\FirmaController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HerosCotroller;
+use App\Http\Controllers\NewslettersController;
 use App\Http\Controllers\PortefoliosController;
 use App\Http\Controllers\SadController;
 use App\Http\Controllers\ServicosController;
+use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\TestemunhosController;
 use App\Http\Controllers\UsrController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +31,9 @@ Route::get('/', [GuestController::class,'index'])->name('inicio');
 Route::get('/about', [GuestController::class,'about'])->name('about');
 Route::get('/gservicos', [GuestController::class,'servicos'])->name('gservicos');
 Route::get('/gportfolio', [GuestController::class,'portfolio'])->name('gportfolio');
+Route::get('/contactos', [GuestController::class,'contactos'])->name('contactos');
+Route::post('/newsletter',[NewslettersController::class,'store'])->name('newsletter.store');
+Route::post('/fcontactos',[ContactosController::class,'store'])->name('fcontactos.store');
 
 //USR - Utilizador
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
@@ -56,11 +63,15 @@ Route::middleware(['auth:sanctum', 'verified', 'authsad'])->group(function () {
     Route::put('titservicos/{id}',[FirmaController::class,'servicosupdate'])->name('titservicos.update');
     Route::put('titportefolio/{id}',[FirmaController::class,'portefolioupdate'])->name('titportefolio.update');
     Route::put('titclientes/{id}',[FirmaController::class,'clientesupdate'])->name('titclientes.update');
+    Route::put('titteams/{id}',[FirmaController::class,'teamsupdate'])->name('titteams.update');
+    Route::put('tittestemunhos/{id}',[FirmaController::class,'testemunhosupdate'])->name('tittestemunhos.update');
 
     Route::resource('destaques',HerosCotroller::class);
     Route::resource('servicos',ServicosController::class);
     Route::resource('portefolios',PortefoliosController::class);
     Route::resource('categorias',CategoriasController::class);
     Route::resource('clientes',ClientesController::class);
+    Route::resource('teams',TeamsController::class);
+    Route::resource('testemunhos',TestemunhosController::class);
 
 });
