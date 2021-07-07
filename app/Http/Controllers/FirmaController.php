@@ -75,6 +75,7 @@ class FirmaController extends Controller
             'instagran' => 'max:255',
             'skype' => 'max:255',
             'linkedin' => 'max:255',
+            'smugmug' => 'max:255',
         ]);
         $data = $request->all();
         Config::where(['id'=>$id])->update([
@@ -83,6 +84,7 @@ class FirmaController extends Controller
                 'instagran' => $data['instagran'],
                 'skype' => $data['skype'],
                 'linkedin' => $data['linkedin'],
+                'smugmug' => $data['smugmug'],
             ]);
         return redirect(route('firma.socials'))->with('success','Dados guardados com sucesso');
     }

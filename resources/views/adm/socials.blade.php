@@ -65,6 +65,14 @@
                             @enderror
                         </div>
 
+                        <div class="form-group">
+                            <label for="smugmug">Smugmug</label>
+                            <input type="text" class="form-control" name="smugmug" value="{{$dados['smugmug']}}">
+                            @error('smugmug')
+                                <div class="text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+
                         <button type="submit" class="btn btn-primary">Guardar Alterações</button>
                     </form>
                 </div>

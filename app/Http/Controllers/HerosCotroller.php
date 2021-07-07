@@ -30,7 +30,7 @@ class HerosCotroller extends Controller
             'titulo' => 'required|max:255',
             'texto' => 'required',
             'link' => 'nullable|url|max:255',
-            'ordem' => 'required',
+            'ordem' => 'required|unique:heroes,ordem',
             'imagem' => 'required|image|mimes:jpg,jpeg,png',
         ]);
         //Gravar na BD
@@ -64,7 +64,7 @@ class HerosCotroller extends Controller
             'titulo' => 'required|max:255',
             'texto' => 'required',
             'link' => 'nullable|url|max:255',
-            'ordem' => 'required',
+            'ordem' => 'required|unique:heroes,ordem,except,id',
             'imagem' => 'image|mimes:jpg,jpeg,png',
         ]);
         //Gravar na BD

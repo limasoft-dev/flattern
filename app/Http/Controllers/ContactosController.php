@@ -14,7 +14,9 @@ class ContactosController extends Controller
      */
     public function index()
     {
-        //
+        $abertos = Contacto::where('estado','<>','fechado')->orderBy('created_at','DESC')->get();
+        $arquivados = Contacto::where('estado','fechado')->orderBy('updated_at','DESC')->get();
+        return view ('adm.mensagens.index',compact('abertos','arquivados'));
     }
 
     /**

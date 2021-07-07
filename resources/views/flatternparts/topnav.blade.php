@@ -22,7 +22,6 @@
                 <li @if ($page == "about") class="active" @endif><a href="{{route('about')}}">Sobre Nós</a></li>
                 <li @if ($page == "servicos") class="active" @endif><a href="{{route('gservicos')}}">Serviços</a></li>
                 <li @if ($page == "portefolio") class="active" @endif><a href="{{route('gportfolio')}}">Portfólio</a></li>
-                <li @if ($page == "precos") class="active" @endif><a href="#">Preços</a></li>
                 <li @if ($page == "noticias") class="active" @endif><a href="#">Notícias</a></li>
                 <!--
                 <li class="drop-down"><a href="">Drop Down</a>

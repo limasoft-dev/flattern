@@ -30,6 +30,7 @@ class CreateConfigsTable extends Migration
             $table->string('instagran')->nullable();
             $table->string('skype')->nullable();
             $table->string('linkedin')->nullable();
+            $table->string('smugmug')->nullable();
             //CHAMADA HORIZONTAL
             $table->string('chtitp1')->default('Temos mais de ')->nullable();
             $table->string('chtitp2')->default('1.000 clientes')->nullable();

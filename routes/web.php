@@ -73,5 +73,6 @@ Route::middleware(['auth:sanctum', 'verified', 'authsad'])->group(function () {
     Route::resource('clientes',ClientesController::class);
     Route::resource('teams',TeamsController::class);
     Route::resource('testemunhos',TestemunhosController::class);
+    Route::resource('mensagens',ContactosController::class);
 
 });

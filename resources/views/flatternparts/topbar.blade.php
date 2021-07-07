@@ -25,7 +25,10 @@
                 <a href="{{$config['skype']}}" class="skype"><i class="icofont-skype"></i></a>
             @endif
             @if (!($config['linkedin'] == ""))
-                <a href="{{$config['linkedin']}}" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+                <a href="{{$config['linkedin']}}" class="linkedin"><i class="icofont-linkedin"></i></a>
+            @endif
+            @if (!($config['smugmug'] == ""))
+                <a href="{{$config['smugmug']}}" class="smugmug"><i class="icofont-smugmug"></i></a>
             @endif
 
 
